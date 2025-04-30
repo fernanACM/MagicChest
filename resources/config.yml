@@ -1,0 +1,14 @@
+config-version: "1.0.0"
+
+Prefix: ""
+
+Settings:
+  MagicChest:
+    refill-interval: 300
+    Loot:
+      min: 4
+      max: 6
+  
+  Broadcast:
+    #
+    times: [1, 2, 3, 4, 5, 60, 3600, 10800, 86400, 2592000]

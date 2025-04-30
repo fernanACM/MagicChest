@@ -1,0 +1,24 @@
+name: MagicChest
+main: fernanACM\MagicChest\MagicChest
+version: 1.0.0
+api: 5.27.1
+author: fernaACM
+description: "MagicChest for servers PocketMine-MP 5.0"
+website: https://github.com/fernanACM
+
+permissions:
+  magicchest.cmd.acm:
+    default: op
+    description: "/magicchest"
+  magicchest.setup.cmd.acm:
+    default: op
+    description: "/magicchest setup"
+  magicchest.refill.cmd.acm:
+    default: op
+    description: "/magicchest refill"
+  magicchest.loot.cmd.acm:
+    default: op
+    description: "/magicchest loot"
+  magicchest.use.remover.wand.acm:
+    default: op
+    description: "Use the wand to remove the magic chest"
