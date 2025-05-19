@@ -33,6 +33,7 @@ final class LangKey{
     public const CHECK_TIME_SECONDS = "MagicChest.CheckTime.seconds";
     public const CHECK_TIME_DAYS = "MagicChest.CheckTime.days";
     public const CHECK_TIME_MONTHS = "MagicChest.CheckTime.months";
+    public const MAGIC_CHEST_TEXT_ENTITY = "MagicChest.Entity.name";
 
     // GENERAL - FORM [SETUP]
     public const SETUP_FORM_CONTENT = "Form.setup.content";

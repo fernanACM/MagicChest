@@ -1,0 +1,57 @@
+#  __  __                   _           ____   _                    _   
+# |  \/  |   __ _    __ _  (_)   ___   / ___| | |__     ___   ___  | |_ 
+# | |\/| |  / _` |  / _` | | |  / __| | |     | '_ \   / _ \ / __| | __|
+# | |  | | | (_| | | (_| | | | | (__  | |___  | | | | |  __/ \__ \ | |_ 
+# |_|  |_|  \__,_|  \__, | |_|  \___|  \____| |_| |_|  \___| |___/  \__|
+#                   |___/
+#           bởi fernanACM
+
+# Hệ thống nạp lại rương với vật phẩm ngẫu nhiên. Dễ thiết lập và rất vui.
+# Chỉ dành cho máy chủ PocketMine-MP 5.0.
+
+# KHÔNG ĐƯỢC CHỈNH SỬA!!
+language-version: "1.0.0"
+
+Messages:
+  error:
+    no-permission: "&cBạn không có quyền làm điều này!"
+    full-inventory: "&cTúi đồ của bạn đã đầy!"
+
+  success:
+    # Sử dụng các khóa sau để biết tọa độ và tên thế giới
+    # nơi vị trí đã được lưu: ["{X}", "{Y}", "{Z}", "{WORLD}"]
+    magic-chest-set: "&aVị trí đã được lưu thành công tại: &7{X}, {Y}, {Z} - {WORLD}&a."
+
+    enter-setup-mode: "&aBạn đã vào chế độ thiết lập. Phá một rương để đặt 'Magic Chest'!"
+    exit-setup-mode: "&cBạn đã thoát khỏi chế độ thiết lập."
+
+    check-time: "&eCòn lại {TIME} để nạp &l&bMAGIC CHEST&r&e!"
+    refill: "&7&l&bMAGIC CHEST&r&7 đã được nạp lại, nhanh lên và lấy nó!"
+    refill-by-player: "&aBạn đã nạp thành công 'Magic Chest'!"
+
+MagicChest:
+  name: "&6&l» &eRương Ma Thuật"
+  CheckTime:
+    hours: "giờ"
+    minutes: "phút"
+    seconds: "giây"
+    days: "ngày"
+    months: "tháng"
+  Entity:
+    name: "&l&aRƯƠNG MA THUẬT{LINE}&r&eChạm để khám phá{LINE}&ekhó báu"
+
+Form:
+  setup:
+    content: "&eChọn một tùy chọn:"
+    toggle1-button: "&l&9CHẾ ĐỘ THIẾT LẬP{LINE}&r&2(ĐANG BẬT)"
+    toggle2-button: "&l&9CHẾ ĐỘ THIẾT LẬP{LINE}&r&c(ĐÃ TẮT)"
+    remove-button: "&l&9GẬY XÓA{LINE}&r&0Bấm"
+    loot-button: "&l&9CHIẾM ĐOẠT{LINE}&r&0Bấm"
+    close-button: "&l&4ĐÓNG MENU{LINE}&r&0Bấm"
+
+Item:
+  name: 
+    - "&r&l&dGẬY XÓA"
+    - "&r&7Nhấn chuột phải"
+    - "&r&7vào rương"
+  saved-inventory: "&aVật phẩm đã được lưu vào Rương Ma Thuật thành công!"

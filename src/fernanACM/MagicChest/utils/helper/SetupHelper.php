@@ -48,25 +48,21 @@ final class SetupHelper{
     /**
      * @param Player $player
      * @param Block $block
-     * @param PlayerInteractEvent
+     * @param BlockBreakEvent
      * @return void
      */
-    public static function addTile(Player $player, Block $block, PlayerInteractEvent $event): void{
-        if(self::inSetupMode($player)){
-            return;
-        }
-
-        if($event->getAction() !== PlayerInteractEvent::RIGHT_CLICK_BLOCK){
-            return;
-        }
-
-        if(!$block->isSameState(VanillaBlocks::CHEST())){
+    public static function addTile(Player $player, Block $block, BlockBreakEvent $event): void{
+        if(!self::inSetupMode($player)){
             return;
         }
 
         $position = $block->getPosition();
         $world = $position->getWorld();
         $tile = $world->getTile($block->getPosition());
+        if($tile instanceof MagicTile){
+            return;
+        }
+        
         if(!$tile instanceof Chest){
             return;
         }
@@ -88,11 +84,15 @@ final class SetupHelper{
     /**
      * @param Player $player
      * @param Block $block
-     * @param BlockBreakEvent
+     * @param PlayerInteractEvent
      * @return void
      */
-    public static function removeTile(Player $player, Block $block, BlockBreakEvent $event): void{
+    public static function removeTile(Player $player, Block $block, PlayerInteractEvent $event): void{
         if(!$player->getInventory()->getItemInHand()->equals(self::removeWand())){
+            return;
+        }
+
+        if($event->getAction() !== PlayerInteractEvent::RIGHT_CLICK_BLOCK){
             return;
         }
 
@@ -104,17 +104,15 @@ final class SetupHelper{
             return;
         }
 
-        if(!$block->isSameState(VanillaBlocks::CHEST())){
-            return;
-        }
-
+        $tile->close();
         $world->removeTile($tile);
         # // DESPAWN ENTITY [TEXT ENTITY]
-        $entity = $world->getNearestEntity($position, 1, TextEntity::class);
+        $entity = $world->getNearestEntity($position, 2, TextEntity::class);
         if($entity instanceof TextEntity){
             $entity->flagForDespawn();
         }
         $event->cancel();
+        $world->setBlock($position, VanillaBlocks::AIR());
     }
 
     /**

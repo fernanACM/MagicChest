@@ -1,0 +1,57 @@
+#  __  __                   _           ____   _                    _   
+# |  \/  |   __ _    __ _  (_)   ___   / ___| | |__     ___   ___  | |_ 
+# | |\/| |  / _` |  / _` | | |  / __| | |     | '_ \   / _ \ / __| | __|
+# | |  | | | (_| | | (_| | | | | (__  | |___  | | | | |  __/ \__ \ | |_ 
+# |_|  |_|  \__,_|  \__, | |_|  \___|  \____| |_| |_|  \___| |___/  \__|
+#                   |___/
+#           oleh fernanACM
+
+# Sistem isi ulang peti dengan item acak. Mudah diatur dan menyenangkan.
+# Hanya untuk server PocketMine-MP 5.0.
+
+# JANGAN DIUBAH!!
+language-version: "1.0.0"
+
+Messages:
+  error:
+    no-permission: "&cKamu tidak punya izin untuk ini!"
+    full-inventory: "&cInventarismu penuh!"
+
+  success:
+    # Gunakan kunci berikut untuk mengetahui koordinat dan nama dunia
+    # tempat lokasi telah disimpan: ["{X}", "{Y}", "{Z}", "{WORLD}"]
+    magic-chest-set: "&aPosisi berhasil disimpan di: &7{X}, {Y}, {Z} - {WORLD}&a."
+
+    enter-setup-mode: "&aKamu telah masuk ke mode pengaturan. Hancurkan peti untuk menetapkan 'Magic Chest'!"
+    exit-setup-mode: "&cKamu telah keluar dari mode pengaturan."
+
+    check-time: "&e{TIME} tersisa untuk mengisi &l&bMAGIC CHEST&r&e!"
+    refill: "&7&l&bMAGIC CHEST&r&7 telah diisi ulang, cepat ambil isinya!"
+    refill-by-player: "&aKamu berhasil mengisi 'Magic Chest'!"
+
+MagicChest:
+  name: "&6&l» &eMagic Chest"
+  CheckTime:
+    hours: "jam"
+    minutes: "menit"
+    seconds: "detik"
+    days: "hari"
+    months: "bulan"
+  Entity:
+    name: "&l&aMAGIC CHEST{LINE}&r&eKetuk untuk menemukan{LINE}&eharta karun"
+
+Form:
+  setup:
+    content: "&ePilih opsi:"
+    toggle1-button: "&l&9MODE SETUP{LINE}&r&2(AKTIF)"
+    toggle2-button: "&l&9MODE SETUP{LINE}&r&c(TIDAK AKTIF)"
+    remove-button: "&l&9TONGKAT PENGHAPUS{LINE}&r&0Klik"
+    loot-button: "&l&9JARAHAN{LINE}&r&0Klik"
+    close-button: "&l&4TUTUP MENU{LINE}&r&0Klik"
+
+Item:
+  name: 
+    - "&r&l&dTONGKAT PENGHAPUS"
+    - "&r&7Klik kanan"
+    - "&r&7pada peti"
+  saved-inventory: "&aJarahan berhasil disimpan ke dalam Magic Chest!"

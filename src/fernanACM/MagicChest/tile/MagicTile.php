@@ -28,24 +28,12 @@ use fernanACM\MagicChest\language\Language;
 
 class MagicTile extends Chest{
 
-    /** @var string|null $customName */
-    protected ?string $customName = null;
-
-    /** @var int|null $open */
-    protected ?int $open = null;
-
     /**
      * @param World $wolrd
      * @param Vector3 $vector
      */
     public function __construct(World $wolrd, Vector3 $vector){
         parent::__construct($wolrd, $vector);
-        if(is_null($this->customName)){
-            $this->customName = Language::getMessage(LangKey::MAGIC_CHEST_NAME);
-        }
-        /*if(is_null($this->open)){
-            $this->open = DataConst::UNOPENED_CHEST;
-        }*/
     }
 
     /**
@@ -55,13 +43,7 @@ class MagicTile extends Chest{
     public function addAdditionalSpawnData(CompoundTag $nbt): void{
         parent::addAdditionalSpawnData($nbt);
         $nbt->setString(self::TAG_ID, NBTConst::MAGIC_CHEST);
-        //$nbt->setInt(NBTConst::IS_OPEN, DataConst::UNOPENED_CHEST);
-        if(!is_null($this->customName)){
-            $nbt->setString(self::TAG_CUSTOM_NAME, $this->customName);
-        }
-        /*if(!is_null($this->open)){
-            $nbt->setInt(NBTConst::IS_OPEN, $this->open);
-        }*/
+        $nbt->setString(self::TAG_CUSTOM_NAME, Language::getMessage(LangKey::MAGIC_CHEST_NAME));
     }
 
     /**
@@ -70,8 +52,6 @@ class MagicTile extends Chest{
      */
     public function readSaveData(CompoundTag $nbt): void{
         parent::readSaveData($nbt);
-        $this->customName = $nbt->getString(self::TAG_CUSTOM_NAME);
-        //$this->open = $nbt->getInt(NBTConst::IS_OPEN);
     }
 
     /**
@@ -81,12 +61,5 @@ class MagicTile extends Chest{
     protected function writeSaveData(CompoundTag $nbt): void{
         parent::writeSaveData($nbt);
         $nbt->setString(NBTConst::MAGIC_CHEST, NBTConst::MAGIC_CHEST);
-    }
-
-    /**
-     * @return string
-     */
-    public function getCustomName(): string{
-        return $this->customName ?? "MagicChest";
     }
 }

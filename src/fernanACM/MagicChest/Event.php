@@ -20,6 +20,8 @@ use pocketmine\event\player\PlayerInteractEvent;
 
 use fernanACM\MagicChest\utils\helper\SetupHelper;
 
+use fernanACM\MagicChest\tile\MagicTile;
+
 class Event implements Listener{
 
     /**
@@ -27,7 +29,12 @@ class Event implements Listener{
      * @return void
      */
     public function onInteract(PlayerInteractEvent $event): void{
-        SetupHelper::addTile($event->getPlayer(), $event->getBlock(), $event);
+        $block = $event->getBlock();
+        $tile = $block->getPosition()->getWorld()->getTile($block->getPosition());
+
+        if($tile instanceof MagicTile){
+            SetupHelper::removeTile($event->getPlayer(), $block, $event);
+        }
     }
 
     /**
@@ -35,6 +42,12 @@ class Event implements Listener{
      * @return void
      */
     public function onBreak(BlockBreakEvent $event): void{
-        SetupHelper::removeTile($event->getPlayer(), $event->getBlock(), $event);
+        $block = $event->getBlock();
+        $tile = $block->getPosition()->getWorld()->getTile($block->getPosition());
+
+        if($tile instanceof MagicTile){
+            $event->cancel();
+        }
+        SetupHelper::addTile($event->getPlayer(), $block, $event);
     }
 }

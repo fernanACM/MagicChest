@@ -1,0 +1,57 @@
+#  __  __                   _           ____   _                    _   
+# |  \/  |   __ _    __ _  (_)   ___   / ___| | |__     ___   ___  | |_ 
+# | |\/| |  / _` |  / _` | | |  / __| | |     | '_ \   / _ \ / __| | __|
+# | |  | | | (_| | | (_| | | | | (__  | |___  | | | | |  __/ \__ \ | |_ 
+# |_|  |_|  \__,_|  \__, | |_|  \___|  \____| |_| |_|  \___| |___/  \__|
+#                   |___/
+#           von fernanACM
+
+# System zum Auffüllen von Truhen mit zufälligen Items. Einfach einzurichten und macht Spaß.
+# Nur für PocketMine-MP 5.0 Server.
+
+# NICHT ÄNDERN!!
+language-version: "1.0.0"
+
+Messages:
+  error:
+    no-permission: "&cDu hast keine Berechtigung dafür!"
+    full-inventory: "&cDein Inventar ist voll!"
+
+  success:
+    # Verwende die folgenden Platzhalter, um die Koordinaten und den Weltnamen
+    # der gesetzten Positionen zu sehen: ["{X}", "{Y}", "{Z}", "{WORLD}"]
+    magic-chest-set: "&aDie Position wurde erfolgreich gespeichert bei: &7{X}, {Y}, {Z} - {WORLD}&a."
+
+    enter-setup-mode: "&aDu hast den Einrichtungsmodus betreten. Zerstöre eine Truhe, um die 'Magic Chest' zu setzen!"
+    exit-setup-mode: "&cDu hast den Einrichtungsmodus verlassen."
+
+    check-time: "&e{TIME} verbleibend bis die &l&bMAGIC CHEST&r&e gefüllt wird!"
+    refill: "&7Die &l&bMAGIC CHEST&r&7 wurde aufgefüllt – schnell, schnapp sie dir!"
+    refill-by-player: "&aDu hast die 'Magic Chest' erfolgreich aufgefüllt!"
+
+MagicChest:
+  name: "&6&l» &eMagische Truhe"
+  CheckTime:
+    hours: "Stunde(n)"
+    minutes: "Minute(n)"
+    seconds: "Sekunde(n)"
+    days: "Tag(e)"
+    months: "Monat(e)"
+  Entity:
+    name: "&l&aMAGISCHE TRUHE{LINE}&r&eTippe, um{LINE}&edie Schätze zu entdecken"
+
+Form:
+  setup:
+    content: "&eWähle eine Option:"
+    toggle1-button: "&l&9SETUP-MODUS{LINE}&r&2(AKTIVIERT)"
+    toggle2-button: "&l&9SETUP-MODUS{LINE}&r&c(DEAKTIVIERT)"
+    remove-button: "&l&9ENTFERNER-STAB{LINE}&r&0Klicken"
+    loot-button: "&l&9BEUTE{LINE}&r&0Klicken"
+    close-button: "&l&4MENÜ SCHLIESSEN{LINE}&r&0Klicken"
+
+Item:
+  name: 
+    - "&r&l&dENTFERNER-STAB"
+    - "&r&7Rechtsklick"
+    - "&r&7auf eine Truhe"
+  saved-inventory: "&aBeute erfolgreich in der Magic Chest gespeichert!"

@@ -1,16 +1,22 @@
 <?php
 
+#      _       ____   __  __ 
+#     / \     / ___| |  \/  |
+#    / _ \   | |     | |\/| |
+#   / ___ \  | |___  | |  | |
+#  /_/   \_\  \____| |_|  |_|
+# The creator of this plugin was fernanACM.
+# https://github.com/fernanACM
+
 declare(strict_types=1);
 
 namespace fernanACM\MagicChest\entities;
 
-use pocketmine\Server;
-
+use pocketmine\utils\TextFormat as TF;
 use pocketmine\utils\SingletonTrait;
 
 use pocketmine\math\Vector3;
 
-use pocketmine\entity\Human;
 use pocketmine\entity\Location;
 
 use pocketmine\entity\EntityDataHelper as Helper;
@@ -22,6 +28,9 @@ use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\nbt\tag\ListTag;
 use pocketmine\nbt\tag\DoubleTag;
 use pocketmine\nbt\tag\FloatTag;
+
+use fernanACM\MagicChest\language\LangKey;
+use fernanACM\MagicChest\language\Language;
 
 final class EntityManager{
     use SingletonTrait{
@@ -70,9 +79,7 @@ final class EntityManager{
      */
     public function create(Location $location): void{
         $entity = new TextEntity($location, $this->createBaseNBT($location));
+        $entity->setNameTag(TF::colorize(Language::getMessage(LangKey::MAGIC_CHEST_TEXT_ENTITY, ["{LINE}" => "\n"])));
         $entity->spawnToAll();
-    }
-
-    public function remove(Location $location): void{
     }
 }

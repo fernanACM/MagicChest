@@ -36,6 +36,8 @@ use fernanACM\MagicChest\language\LanguageManager;
 use fernanACM\MagicChest\forms\FormManager;
 use fernanACM\MagicChest\entities\EntityManager;
 
+use fernanACM\MagicChest\task\RefillTask;
+
 use fernanACM\MagicChest\commands\MagicChestCommand;
 
 class MagicChest extends PluginBase{
@@ -68,7 +70,9 @@ class MagicChest extends PluginBase{
         $this->loadCommands();
         $this->loadEntities();
         $this->loadEvents();
+        $this->getMagicChestManager()->init();
         $this->getLootManager()->loadInventory();
+        $this->loadTasks();
     }
 
     /**
@@ -158,6 +162,13 @@ class MagicChest extends PluginBase{
      */
     protected function loadEvents(): void{
         $this->getServer()->getPluginManager()->registerEvents(new Event, $this);
+    }
+
+    /**
+     * @return void
+     */
+    protected function loadTasks(): void{
+        $this->getScheduler()->scheduleRepeatingTask(new RefillTask(intval($this->config->getNested("Settings.MagicChest.refill-interval"))), 20);
     }
 
     /**

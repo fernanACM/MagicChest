@@ -1,14 +1,43 @@
+#  __  __                   _           ____   _                    _   
+# |  \/  |   __ _    __ _  (_)   ___   / ___| | |__     ___   ___  | |_ 
+# | |\/| |  / _` |  / _` | | |  / __| | |     | '_ \   / _ \ / __| | __|
+# | |  | | | (_| | | (_| | | | | (__  | |___  | | | | |  __/ \__ \ | |_ 
+# |_|  |_|  \__,_|  \__, | |_|  \___|  \____| |_| |_|  \___| |___/  \__|
+#                   |___/
+#           by fernanACM
+
+# Chest refill system with random items. Easy to set up and fun. Only 
+# for PocketMine-MP 5.0 servers.
+
+# DO NOT TOUCH!!
 config-version: "1.0.0"
 
-Prefix: ""
+# Languages
+# "eng", // English
+# "spa", // Spanish
+# "ger", // German
+# "indo", // Indonesian
+# "vie" // Vietnamese
+language: eng
 
+# Prefix plugin
+Prefix: "&l&f[&9MC&f]&8»&r "
+
+# ====(SETTINGS)====
 Settings:
   MagicChest:
+    # It's time to fill the magic chest:
+    # 300 => 5 minutes
     refill-interval: 300
+    # ====(LOOT)====
     Loot:
+      # Minimum amount of loot in the chest.
       min: 4
+      # Maximum amount of loot in the chest.
       max: 6
-  
-  Broadcast:
-    #
-    times: [1, 2, 3, 4, 5, 60, 3600, 10800, 86400, 2592000]
+    # ====(BROADCAST)====
+    Broadcast:
+      # Enter the number of seconds the announcer 
+      # will be active. If you have no idea what 
+      # it's for, leave it as is.
+      times: [1, 2, 3, 4, 5, 60, 3600, 10800, 86400, 2592000]

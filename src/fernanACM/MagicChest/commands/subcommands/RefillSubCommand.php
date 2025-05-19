@@ -59,7 +59,7 @@ class RefillSubCommand extends BaseSubCommand{
 
         $value = isset($args["msg"]) ? $args["msg"] : false;
         MC::getInstance()->getMagicChestManager()->refill($value);
-        Language::getPlayerMessage($sender, MC::getPrefix().LangKey::SUCCESS_REFILL_BY_PLAYER);
+        Language::isSuccess($sender, LangKey::SUCCESS_REFILL_BY_PLAYER, [], false);
         PluginUtils::PlaySound($sender, "random.pop", 1, 1);
     }
 }

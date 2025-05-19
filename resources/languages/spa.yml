@@ -1,0 +1,57 @@
+#  __  __                   _           ____   _                    _   
+# |  \/  |   __ _    __ _  (_)   ___   / ___| | |__     ___   ___  | |_ 
+# | |\/| |  / _` |  / _` | | |  / __| | |     | '_ \   / _ \ / __| | __|
+# | |  | | | (_| | | (_| | | | | (__  | |___  | | | | |  __/ \__ \ | |_ 
+# |_|  |_|  \__,_|  \__, | |_|  \___|  \____| |_| |_|  \___| |___/  \__|
+#                   |___/
+#           por fernanACM
+
+# Sistema de recarga de cofres con ítems aleatorios. Fácil de configurar y divertido.
+# Solo para servidores PocketMine-MP 5.0.
+
+# ¡NO TOCAR!
+language-version: "1.0.0"
+
+Messages:
+  error:
+    no-permission: "&c¡No tienes permiso para esto!"
+    full-inventory: "&c¡Tu inventario está lleno!"
+
+  success:
+    # Usa las siguientes claves para conocer las coordenadas y el nombre del mundo
+    # donde se han establecido las ubicaciones: ["{X}", "{Y}", "{Z}", "{WORLD}"]
+    magic-chest-set: "&a¡La posición se ha guardado correctamente en: &7{X}, {Y}, {Z} - {WORLD}&a!"
+
+    enter-setup-mode: "&aHas entrado en el modo configuración. ¡Rompe un cofre para establecer el 'Magic Chest'!"
+    exit-setup-mode: "&cHas salido del modo configuración."
+
+    check-time: "&e¡Quedan {TIME} para rellenar el &l&bMAGIC CHEST&r&e!"
+    refill: "&7¡El &l&bMAGIC CHEST&r&7 ha sido rellenado, ¡corre y tómalo!"
+    refill-by-player: "&a¡Has rellenado correctamente el 'Magic Chest'!"
+
+MagicChest:
+  name: "&6&l» &eMagic Chest"
+  CheckTime:
+    hours: "hora(s)"
+    minutes: "minuto(s)"
+    seconds: "segundo(s)"
+    days: "día(s)"
+    months: "mes(es)"
+  Entity:
+    name: "&l&aMAGIC CHEST{LINE}&r&eToca para descubrir{LINE}&elos tesoros"
+
+Form:
+  setup:
+    content: "&eSelecciona una opción:"
+    toggle1-button: "&l&9MODO CONFIGURACIÓN{LINE}&r&2(HABILITADO)"
+    toggle2-button: "&l&9MODO CONFIGURACIÓN{LINE}&r&c(DESHABILITADO)"
+    remove-button: "&l&9BASTÓN REMOVEDOR{LINE}&r&0Clic"
+    loot-button: "&l&9LOOT{LINE}&r&0Clic"
+    close-button: "&l&4CERRAR MENÚ{LINE}&r&0Clic"
+
+Item:
+  name: 
+    - "&r&l&dBASTÓN REMOVEDOR"
+    - "&r&7Clic derecho"
+    - "&r&7sobre un cofre"
+  saved-inventory: "&a¡Loot guardado correctamente en el Magic Chest!"

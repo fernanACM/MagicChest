@@ -1,0 +1,57 @@
+#  __  __                   _           ____   _                    _   
+# |  \/  |   __ _    __ _  (_)   ___   / ___| | |__     ___   ___  | |_ 
+# | |\/| |  / _` |  / _` | | |  / __| | |     | '_ \   / _ \ / __| | __|
+# | |  | | | (_| | | (_| | | | | (__  | |___  | | | | |  __/ \__ \ | |_ 
+# |_|  |_|  \__,_|  \__, | |_|  \___|  \____| |_| |_|  \___| |___/  \__|
+#                   |___/
+#           by fernanACM
+
+# Chest refill system with random items. Easy to set up and fun. Only 
+# for PocketMine-MP 5.0 servers.
+
+# DO NOT TOUCH!!  
+language-version: "1.0.0"
+
+Messages:
+  error:
+    no-permission: "&cYou don't have permission for this!"
+    full-inventory: "&cYour inventory is full!"
+
+  success:
+    # Use the following keys to know the coordinates and world name
+    # where the locations have been set: ["{X}", "{Y}", "{Z}", "{WORLD}"]
+    magic-chest-set: "&aThe position has been successfully saved at: &7{X}, {Y}, {Z} - {WORLD}&a."
+
+    enter-setup-mode: "&aYou have entered setup mode. Break a chest to establish the 'Magic Chest'!"
+    exit-setup-mode: "&cYou have exited setup mode."
+
+    check-time: "&e{TIME} left to fill the &l&bMAGIC CHEST&r&e!"
+    refill: "&7The &l&bMAGIC CHEST&r&7 has been refilled, run and get it!"
+    refill-by-player: "&aYou have successfully filled the 'Magic Chest'!"
+
+MagicChest:
+  name: "&6&l» &eMagic Chest"
+  CheckTime:
+    hours: "hour(s)"
+    minutes: "minute(s)"
+    seconds: "second(s)"
+    days: "day(s)"
+    months: "month(s)"
+  Entity:
+    name: "&l&aMAGIC CHEST{LINE}&r&eTap to discover{LINE}&ethe treasures"
+
+Form:
+  setup:
+    content: "&eSelect an option:"
+    toggle1-button: "&l&9SETUP MODE{LINE}&r&2(ENABLED)"
+    toggle2-button: "&l&9SETUP MODE{LINE}&r&c(DISABLED)"
+    remove-button: "&l&9REMOVER WAND{LINE}&r&0Click"
+    loot-button: "&l&9LOOT{LINE}&r&0Click"
+    close-button: "&l&4CLOSE MENU{LINE}&r&0Click"
+
+Item:
+  name: 
+    - "&r&l&dREMOVER WAND"
+    - "&r&7Right-click"
+    - "&r&7on a chest"
+  saved-inventory: "&aLoot successfully saved to the Magic Chest!"

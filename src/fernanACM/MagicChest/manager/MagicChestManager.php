@@ -16,6 +16,8 @@ use pocketmine\Server;
 
 use pocketmine\utils\SingletonTrait;
 
+use pocketmine\block\tile\TileFactory;
+
 use fernanACM\MagicChest\MagicChest as MC;
 
 use fernanACM\MagicChest\tile\MagicTile;
@@ -36,6 +38,13 @@ final class MagicChestManager{
     /**
      * @return void
      */
+    public function init(): void{
+        TileFactory::getInstance()->register(MagicTile::class);
+    }
+
+    /**
+     * @return void
+     */
     public function refill(bool $refillMsg = true): void{
         $checkMsg = false;
         foreach(Server::getInstance()->getWorldManager()->getWorlds() as $world){
@@ -48,7 +57,7 @@ final class MagicChestManager{
                     $max = intval(MC::getInstance()->config->getNested("Settings.MagicChest.Loot.max"));
                     $tile->getInventory()->setContents([]);
                     foreach(MC::getInstance()->getLootManager()->getRandomItems(rand($min, $max)) as $item){
-                        $tile->getInventory()->setItem(rand(0, 27), $item);
+                        $tile->getInventory()->setItem(rand(0, 26), $item);
                     }
                     if(!$checkMsg){
                         if($refillMsg) $this->broadcaster();
@@ -73,7 +82,7 @@ final class MagicChestManager{
     public function checkTime(int $time): void{
         if(in_array($time, $this->getTimes())){
             $timer = $this->convertSecondsToTime($time);
-            Server::getInstance()->broadcastMessage(MC::getPrefix(). Language::getMessage(LangKey::SUCCESS_CHECK_TIME), ["{TIME}" => $timer]);
+            Server::getInstance()->broadcastMessage(MC::getPrefix(). Language::getMessage(LangKey::SUCCESS_CHECK_TIME, ["{TIME}" => $timer]));
         }
     }
 
