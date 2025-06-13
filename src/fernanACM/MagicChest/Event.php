@@ -15,8 +15,11 @@ namespace fernanACM\MagicChest;
 use pocketmine\event\Listener;
 
 use pocketmine\event\block\BlockBreakEvent;
+use pocketmine\event\block\BlockPlaceEvent;
 
 use pocketmine\event\player\PlayerInteractEvent;
+
+use pocketmine\block\Block;
 
 use fernanACM\MagicChest\utils\helper\SetupHelper;
 
@@ -34,6 +37,25 @@ class Event implements Listener{
 
         if($tile instanceof MagicTile){
             SetupHelper::removeTile($event->getPlayer(), $block, $event);
+        }
+    }
+
+    /**
+     * @param BlockPlaceEvent $event
+     * @return void
+     */
+    public function onPlace(BlockPlaceEvent $event): void{
+        $transaction = $event->getTransaction();
+        foreach($transaction->getBlocks() as [$x, $y, $z, $block]){
+            /** @var Block $block */
+            $world = $block->getPosition()->getWorld();
+            $position = $block->getPosition();
+            $tileBelow = $world->getTile($position->add(0, -1, 0)); // CEILING
+            $tileAbove = $world->getTile($position->add(0, 1, 0)); // FLOOR
+            if($tileBelow instanceof MagicTile || $tileAbove instanceof MagicTile){
+                $event->cancel();
+                break;
+            }
         }
     }
 

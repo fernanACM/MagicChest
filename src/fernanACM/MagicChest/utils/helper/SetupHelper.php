@@ -107,7 +107,7 @@ final class SetupHelper{
         $tile->close();
         $world->removeTile($tile);
         # // DESPAWN ENTITY [TEXT ENTITY]
-        $entity = $world->getNearestEntity($position, 2, TextEntity::class);
+        $entity = $world->getNearestEntity($position, 1.5, TextEntity::class);
         if($entity instanceof TextEntity){
             $entity->flagForDespawn();
         }
