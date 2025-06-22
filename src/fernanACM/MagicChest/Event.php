@@ -70,6 +70,16 @@ class Event implements Listener{
         if($tile instanceof MagicTile){
             $event->cancel();
         }
+
+        if(SetupHelper::inSetupMode($event->getPlayer())){
+            $world = $block->getPosition()->getWorld();
+            $position = $block->getPosition();
+            $tileBelow = $world->getTile($position->add(0, -1, 0)); // CEILING
+            $tileAbove = $world->getTile($position->add(0, 1, 0)); // FLOOR
+            if($tileBelow instanceof MagicTile || $tileAbove instanceof MagicTile){
+                $event->cancel();
+            }
+        }
         SetupHelper::addTile($event->getPlayer(), $block, $event);
     }
 }
