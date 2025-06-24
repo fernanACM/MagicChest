@@ -71,9 +71,9 @@ Settings:
 |----------|---------------|
 | English | [fernanACM](https://github.com/fernanACM) |
 | Spanish | [fernanACM](https://github.com/fernanACM) |
-| Indonesian | EasterEggs |
-| German | EasterEggs |
-| Vietnamese | EasterEggs |
+| Indonesian | MagicChest |
+| German | MagicChest |
+| Vietnamese | MagicChest |
 
 ### 📢 Report bug
 * If you find any bugs in this plugin, please let me know via: [issues](https://github.com/fernanACM/MagicChest/issues)
